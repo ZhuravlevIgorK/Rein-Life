@@ -1,5 +1,6 @@
 import styles from "./ourTeam.module.css"
 import ButtonMain from "../components/Button/button";
+import Image from "next/image";
 
 
     
@@ -11,12 +12,12 @@ export default function ourResearch() {
             <div className={styles.photoLoc}>
                 <div className={styles.fotoSyle}>
                     <figure className={styles.foto}>        
-                        <img className={styles.img} src="IgorZ.jfif" alt="фото"/>
+                        <Image className={styles.img} src="/IgorZ.jfif" width={300} height={310} alt="фото"/>
                         <figcaption >Development Director <br/>Zhuravlev Igor</figcaption>
                     </figure> 
                 </div>
                 <figure className={styles.foto}>        
-                    <img className={styles.img} src="VadimM.jpg" alt="фото"/>
+                    <Image className={styles.img} src="/VadimM.jpg" width={300} height={310} alt="фото"/>
                     <figcaption >Executive director <br/>Vadim Minakov</figcaption>
                 </figure> 
                
