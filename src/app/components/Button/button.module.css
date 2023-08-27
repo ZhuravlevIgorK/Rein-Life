@@ -1,0 +1,15 @@
+.ButtonMain{
+    background-color: #c0c7c9d3; 
+    margin-left: auto;
+    margin-right: auto;        
+    height: auto;      
+    width: 200px;   
+    border-radius: 14px;
+    border-style: outset;
+    padding: 3px 20px;
+    font-style: oblique;    
+    font-size: 16px;
+    color: rgb(14, 55, 94);
+    text-decoration: none;   
+    cursor: pointer;    
+}
