@@ -1,18 +1,27 @@
 'use client';
 import styles from "./worldAchievements.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ButtonMain from "../components/Button/button";
 import Articles from "../components/Articles/articles";
 
 let articles = Articles();
 
-export default function OurResearch(props) {      
+export default function WorldAchievements(props) {   
+
     const [articleObj, setArticleObj] = useState(true);
     const [pushButton, setPushButton] = useState(false);
     const [newName, setNewName] = useState("");
     const [newText, setNewText] = useState("");
     
-    let isAdmin = window.localStorage.getItem('isAuth');
+    // let isAdmin = window.localStorage.getItem('isAuth');
+
+    const [isAuth, setIsAuth] = useState("")
+
+    useEffect(() => {
+         let value         
+         value = localStorage.getItem('isAuth') || ""
+         setIsAuth(value)
+    }, [])
 
     const pushClick = () => {
         setPushButton(!pushButton);        
@@ -21,9 +30,7 @@ export default function OurResearch(props) {
     const saveArticle = () => {
         articles.push({name: `${newName}`, text: `${newText}`, flag: false})      
         setArticleObj(!articleObj); 
-    }
-
-        
+    }        
 
     return (
         <div className={styles.achiev}>            
@@ -36,16 +43,16 @@ export default function OurResearch(props) {
             { articles.map((e, index) => {          
                 const handleClick = () => {                                        
                     e.flag = !e.flag;                   
-                    setArticleObj(!articleObj); 
+                    setArticleObj(!articleObj);                    
                 }   
                 
                 const deleteClick = () => {                    
                     delete articles[index];
-                    setArticleObj(!articleObj); 
+                    setArticleObj(!articleObj);                    
                 }  
 
                 return (                                            
-                    <div className={styles.article1}>   
+                    <div className={styles.article1} key={index}>   
 
                         <div className={styles.buttonsArticles}>
                             <button 
@@ -72,7 +79,7 @@ export default function OurResearch(props) {
                 )
             })} 
 
-            { isAdmin && <button 
+            { isAuth && <button 
                 className={styles.makeArticle}  
                 onClick={pushClick}                                          
             >

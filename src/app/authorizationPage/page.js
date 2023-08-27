@@ -59,7 +59,7 @@ export default function AuthorizationPage() {
                 </div>               
             } 
 
-            <button onClick={delAuthor}>Разлогиниться</button>
+            <button className={styles.authorizationButton} onClick={delAuthor}>Разлогиниться</button>
                                 
             
         </div>         

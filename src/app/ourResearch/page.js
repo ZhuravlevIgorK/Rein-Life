@@ -1,16 +1,22 @@
 'use client';
+import { useState, useEffect } from "react";
 import styles from "./ourResearch.module.css";
 import ButtonMain from "../components/Button/button";
 
-
-
-export default function ourResearch() {
+export default function OurResearch() {
     
-    let isAdmin = window.localStorage.getItem('isAuth');
+    // let isAdmin = window.localStorage.getItem('isAuth');
+    const [isAuth, setIsAuth] = useState("")
+
+    useEffect(() => {
+         let value         
+         value = localStorage.getItem('isAuth') || ""
+         setIsAuth(value)
+    }, [])
     
     return (   
         <div>     
-            { isAdmin ?
+            { isAuth ?
                 <div>            
                     <div className={styles.research}>            
                         <ButtonMain /> 
@@ -25,7 +31,7 @@ export default function ourResearch() {
                         <ButtonMain /> 
                         <h3>
                             Раздел недоступен для Вас.
-                            <br/>Для доступа в раздел обратитесть в контактный центр по тел. 8-800-999-41-23                   
+                            <br/>Для доступа авторизируйтесь, или обратитесть в контактный центр по тел. 8-800-999-41-23                   
                         </h3>          
                     </div>
                 </div> 
