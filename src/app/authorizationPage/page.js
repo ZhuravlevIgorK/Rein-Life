@@ -36,7 +36,10 @@ export default function AuthorizationPage() {
            <h2 className={styles.authorizationText}>Authorization</h2>
           
            { value ? 
-                <div className={styles.authorizationText}>Hello admin</div> 
+                <div className={styles.inputUser}>
+                    <div className={styles.authorizationText}>Hello admin</div>
+                    <button className={styles.authorizationButton} onClick={delAuthor}>Разлогиниться</button> 
+                </div>
             :
                 <div className={styles.inputUser}>
                     <label>Login</label>
@@ -56,11 +59,12 @@ export default function AuthorizationPage() {
                     />
             
                     <button className={styles.authorizationButton} onClick={admin}>Authorization</button>
+                    <button className={styles.authorizationButton} onClick={delAuthor}>Разлогиниться</button>
 
                 </div>               
             } 
 
-            <button className={styles.authorizationButton} onClick={delAuthor}>Разлогиниться</button>
+            
                                 
             
         </div>         
