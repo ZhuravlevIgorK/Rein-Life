@@ -1,8 +1,6 @@
 'use client';
-import {React, useState } from "react";
+import {React, useState, useEffect } from "react";
 import styles from "./authorizationPage.module.css";
-// import { Navigate } from "react-router-dom";
-// import Link from "next/link";
 import ButtonMain from "../components/Button/button";
 
 export default function AuthorizationPage() {  
@@ -11,7 +9,10 @@ export default function AuthorizationPage() {
     
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState(""); 
-    const [authorization, setAuthorization] =  useState(false);     
+    const [authorization, setAuthorization] =  useState(false);
+    const [outauth, setOutauth] =  useState(false);  
+    
+    let value = localStorage.getItem('isAuth') || ""    
         
     const admin = () => {         
        if ((`${login}` == Auth[0].login) && (`${password}` == Auth[0].password)) { 
@@ -24,7 +25,7 @@ export default function AuthorizationPage() {
 
     const delAuthor = () => {
         window.localStorage.setItem( 'isAuth', '' ) 
-        setAuthorization(!authorization)
+        setOutauth(!outauth)
     }
       
     return (
@@ -34,7 +35,7 @@ export default function AuthorizationPage() {
                         
            <h2 className={styles.authorizationText}>Authorization</h2>
           
-           { authorization ? 
+           { value ? 
                 <div className={styles.authorizationText}>Hello admin</div> 
             :
                 <div className={styles.inputUser}>
