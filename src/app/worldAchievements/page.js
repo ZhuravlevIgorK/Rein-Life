@@ -13,9 +13,8 @@ export default function WorldAchievements(props) {
     const [newName, setNewName] = useState("");
     const [newText, setNewText] = useState("");
     
-    // let isAdmin = window.localStorage.getItem('isAuth');
-
-    const [isAuth, setIsAuth] = useState("")
+    
+    const [isAuth, setIsAuth] = useState("");
 
     useEffect(() => {
          let value         
@@ -30,7 +29,11 @@ export default function WorldAchievements(props) {
     const saveArticle = () => {
         articles.push({name: `${newName}`, text: `${newText}`, flag: false})      
         setArticleObj(!articleObj); 
-    }        
+    }    
+    
+    const figClick = () => {                    
+        alert("авторизируйтесь");                                     
+    } 
 
     return (
         <div className={styles.achiev}>            
@@ -51,6 +54,8 @@ export default function WorldAchievements(props) {
                     setArticleObj(!articleObj);                    
                 }  
 
+               
+
                 return (                                            
                     <div className={styles.article1} key={index}>   
 
@@ -62,14 +67,15 @@ export default function WorldAchievements(props) {
                             {e.name}
                             </button>
 
-                            <div>              
+                            { isAuth && <div>              
                                 <button 
                                     className={styles.buttonArticle}  
                                     onClick={deleteClick}                                          
                                 >
                                 Удалить статью
                                 </button>
-                            </div>
+                            </div> 
+                            }
                         </div>
 
                         { e.flag ? <div>{e.text}</div> : "" }                          
@@ -79,12 +85,12 @@ export default function WorldAchievements(props) {
                 )
             })} 
 
-            { isAuth && <button 
+            { isAuth ? <button 
                 className={styles.makeArticle}  
                 onClick={pushClick}                                          
             >
                 Добавить статью
-            </button>
+            </button> : <button onClick={figClick}>Добавить или удалить статью</button>
             }  
             
             { pushButton ? 
