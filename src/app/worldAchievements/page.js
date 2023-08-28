@@ -32,7 +32,7 @@ export default function WorldAchievements(props) {
     }    
     
     const figClick = () => {                    
-        alert("авторизируйтесь");                                     
+        alert("Для редактирования авторизируйтесь в разделе Авторизация");                                     
     } 
 
     return (
