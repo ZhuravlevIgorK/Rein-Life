@@ -6,13 +6,18 @@ import ButtonMain from "../components/Button/button";
 export default function AuthorizationPage() {  
 
     const Auth = [{login: "a", password: 1}]
-    
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState(""); 
     const [authorization, setAuthorization] =  useState(false);
-    const [outauth, setOutauth] =  useState(false);  
-    
-    let value = localStorage.getItem('isAuth') || ""    
+    const [outauth, setOutauth] =  useState(false);
+
+    const [isAuth, setIsAuth] = useState("")
+
+    useEffect(() => {
+         let value         
+         value = localStorage.getItem('isAuth') || ""
+         setIsAuth(value)
+    }, [authorization, outauth])
         
     const admin = () => {         
        if ((`${login}` == Auth[0].login) && (`${password}` == Auth[0].password)) { 
@@ -35,7 +40,7 @@ export default function AuthorizationPage() {
                         
            <h2 className={styles.authorizationText}>Authorization</h2>
           
-           { value ? 
+           { isAuth ? 
                 <div className={styles.inputUser}>
                     <div className={styles.authorizationText}>Hello admin</div>
                     <button className={styles.authorizationButton} onClick={delAuthor}>Разлогиниться</button> 
@@ -63,10 +68,6 @@ export default function AuthorizationPage() {
 
                 </div>               
             } 
-
-            
-                                
-            
         </div>         
     )
 }
