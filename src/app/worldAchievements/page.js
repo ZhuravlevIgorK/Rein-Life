@@ -32,7 +32,7 @@ export default function WorldAchievements(props) {
     }    
     
     const figClick = () => {                    
-        alert("Для редактирования авторизируйтесь в разделе Авторизация");                                     
+        alert("ENG  To edit, authorize in the Authorization section \n\nRUS   Для редактирования авторизируйтесь в разделе Авторизация");                                     
     } 
 
     return (
@@ -72,7 +72,7 @@ export default function WorldAchievements(props) {
                                     className={styles.buttonArticle}  
                                     onClick={deleteClick}                                          
                                 >
-                                Удалить статью
+                                Delete article
                                 </button>
                             </div> 
                             }
@@ -89,8 +89,8 @@ export default function WorldAchievements(props) {
                 className={styles.makeArticle}  
                 onClick={pushClick}                                          
             >
-                Добавить статью
-            </button> : <button onClick={figClick}>Добавить или удалить статью</button>
+                Add article
+            </button> : <button onClick={figClick}>Add or remove an article</button>
             }  
             
             { pushButton ? 
@@ -112,7 +112,7 @@ export default function WorldAchievements(props) {
                     <button 
                         onClick={ saveArticle }
                     >
-                        Сохранить введенную статью
+                        Save entered article
                     </button> 
                 </div>
             : ""} 

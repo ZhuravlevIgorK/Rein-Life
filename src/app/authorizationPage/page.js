@@ -24,7 +24,7 @@ export default function AuthorizationPage() {
                window.localStorage.setItem( 'isAuth', 'ok' ) 
                setAuthorization(!authorization)                
             } else {
-                alert("Неверный пароль");
+                alert("Incorrect password");
             };  
     } 
 
@@ -43,7 +43,7 @@ export default function AuthorizationPage() {
            { isAuth ? 
                 <div className={styles.inputUser}>
                     <div className={styles.authorizationText}>Hello admin</div>
-                    <button className={styles.authorizationButton} onClick={delAuthor}>Разлогиниться</button> 
+                    <button className={styles.authorizationButton} onClick={delAuthor}>log out</button> 
                 </div>
             :
                 <div className={styles.inputUser}>
@@ -64,7 +64,7 @@ export default function AuthorizationPage() {
                     />
             
                     <button className={styles.authorizationButton} onClick={admin}>Authorization</button>
-                    <button className={styles.authorizationButton} onClick={delAuthor}>Разлогиниться</button>
+                    <button className={styles.authorizationButton} onClick={delAuthor}>log out</button>
 
                 </div>               
             } 

@@ -20,18 +20,23 @@ export default function OurResearch() {
                 <div>            
                     <div className={styles.research}>            
                         <ButtonMain /> 
-                        <ul>
-                            <li>Наши исследования в области генетики</li>                    
-                            <li>Исследования в области фармакологии</li>
-                        </ul>          
+                        <main className={styles.resp}>
+                            <h3>Our research in genetics</h3>
+                            <div>
+                                 We are currently doing a lot of research, and we will be happy to tell you about it in the near future. 
+                                 You can get more detailed information at the meeting of shareholders of the company.
+                            </div>
+
+                          
+                        </main>          
                     </div>
                 </div> : 
                 <div>                    
                     <div className={styles.research}>            
                         <ButtonMain /> 
                         <h3>
-                            Раздел недоступен для Вас.
-                            <br/>Для доступа авторизируйтесь, или обратитесть в контактный центр по тел. 8-800-999-41-23                   
+                            The section is not available to you.
+                            <br/>To access, log in, or contact the contact center at tel. 8-800-999-41-23                   
                         </h3>          
                     </div>
                 </div> 
